@@ -1,0 +1,16 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jul 20, 2025, 7:28:13 AM
+    Author     : MD Mahabubur Rahman
+*/
+
+.header{
+    -fx-background-color:linear-gradient(to bottom right,#098c53, #246861);
+}
+
+.nav-form{
+    -fx-background-color: linear-gradient(to bottom right,#0f6789, #286155);
+}
