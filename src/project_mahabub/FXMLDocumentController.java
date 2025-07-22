@@ -14,10 +14,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class FXMLDocumentController implements Initializable {
@@ -126,6 +130,23 @@ public class FXMLDocumentController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("Successfully logged in!");
                     alert.showAndWait();
+                    
+                    //Link your mainForm
+                     Parent root = FXMLLoader.load(getClass().getResource("mainForm.fxml"));
+                    
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    
+                    stage.setTitle("Cafe Shop Management System");
+                    stage.setMinWidth(1100);
+                    stage.setMinHeight(600);
+                    
+                    stage.setScene(scene);
+                    stage.show();
+                    
+                    loginbtn.getScene().getWindow().hide();
+                    
+                    
                 } else {
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Information Message");

@@ -11,7 +11,7 @@
     <jar href="lib\fontawesomefx-8.2.jar" size="180341" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.49.jar" size="1006904" download="eager" />
     <jar href="lib\ojdbc14-10.2.0.2.0.jar" size="1540457" download="eager" />
-    <jar href="project_Mahabub.jar" size="12015" download="eager" />
+    <jar href="project_Mahabub.jar" size="14086" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="project_mahabub.Project_Mahabub"  name="project_Mahabub" />
   <update check="always"/>
