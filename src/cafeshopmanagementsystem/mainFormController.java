@@ -198,5 +198,13 @@ public class mainFormController implements Initializable {
     @FXML
     private void menuReceiptBtn(ActionEvent event) {
     }
+
+    public void customerID() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void menuGetTotal() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

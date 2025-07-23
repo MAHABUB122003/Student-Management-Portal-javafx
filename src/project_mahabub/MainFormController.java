@@ -1,15 +1,10 @@
- /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package project_mahabub;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+package project_Mahabub;
+
 import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
@@ -59,47 +54,8 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.io.File;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.chart.AreaChart;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.XYChart;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
+import project_mahabub.data;
+import project_mahabub.database;
 
 /**
  *
@@ -126,7 +82,7 @@ public class mainFormController implements Initializable {
     private Button customers_btn;
 
     @FXML
-    private FontAwesomeIcon logout_btn;
+    private Button logout_btn;
 
     @FXML
     private AnchorPane inventory_form;
@@ -171,7 +127,7 @@ public class mainFormController implements Initializable {
     private Button inventory_clearBtn;
 
     @FXML
-    private AnchorPane inventory_deleteBtn;
+    private Button inventory_deleteBtn;
 
     @FXML
     private TextField inventory_productID;
@@ -190,6 +146,84 @@ public class mainFormController implements Initializable {
 
     @FXML
     private ComboBox<?> inventory_type;
+
+    @FXML
+    private AnchorPane menu_form;
+
+    @FXML
+    private ScrollPane menu_scrollPane;
+
+    @FXML
+    private GridPane menu_gridPane;
+
+    @FXML
+    private TableView<productData> menu_tableView;
+
+    @FXML
+    private TableColumn<productData, String> menu_col_productName;
+
+    @FXML
+    private TableColumn<productData, String> menu_col_quantity;
+
+    @FXML
+    private TableColumn<productData, String> menu_col_price;
+
+    @FXML
+    private Label menu_total;
+
+    @FXML
+    private TextField menu_amount;
+
+    @FXML
+    private Label menu_change;
+
+    @FXML
+    private Button menu_payBtn;
+
+    @FXML
+    private Button menu_removeBtn;
+
+    @FXML
+    private Button menu_receiptBtn;
+
+    @FXML
+    private AnchorPane dashboard_form;
+
+    @FXML
+    private AnchorPane customers_form;
+
+    @FXML
+    private TableView<customersData> customers_tableView;
+
+    @FXML
+    private TableColumn<customersData, String> customers_col_customerID;
+
+    @FXML
+    private TableColumn<customersData, String> customers_col_total;
+
+    @FXML
+    private TableColumn<customersData, String> customers_col_date;
+
+    @FXML
+    private TableColumn<customersData, String> customers_col_cashier;
+
+    @FXML
+    private Label dashboard_NC;
+
+    @FXML
+    private Label dashboard_TI;
+
+    @FXML
+    private Label dashboard_TotalI;
+
+    @FXML
+    private Label dashboard_NSP;
+
+    @FXML
+    private AreaChart<?, ?> dashboard_incomeChart;
+
+    @FXML
+    private BarChart<?, ?> dashboard_CustomerChart;
 
     private Alert alert;
 
@@ -340,7 +374,7 @@ public class mainFormController implements Initializable {
                 || inventory_status.getSelectionModel().getSelectedItem() == null
                 || data.path == null) {
 
-            alert = new Alert(Alert.AlertType.ERROR);
+            alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error Message");
             alert.setHeaderText(null);
             alert.setContentText("Please fill all blank fields");
@@ -360,7 +394,7 @@ public class mainFormController implements Initializable {
                 result = statement.executeQuery(checkProdID);
 
                 if (result.next()) {
-                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Error Message");
                     alert.setHeaderText(null);
                     alert.setContentText(inventory_productID.getText() + " is already taken");
@@ -391,7 +425,7 @@ public class mainFormController implements Initializable {
 
                     prepare.executeUpdate();
 
-                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Error Message");
                     alert.setHeaderText(null);
                     alert.setContentText("Successfully Added!");
@@ -417,7 +451,7 @@ public class mainFormController implements Initializable {
                 || inventory_status.getSelectionModel().getSelectedItem() == null
                 || data.path == null || data.id == 0) {
 
-            alert = new Alert(Alert.AlertType.ERROR);
+            alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error Message");
             alert.setHeaderText(null);
             alert.setContentText("Please fill all blank fields");
@@ -442,7 +476,7 @@ public class mainFormController implements Initializable {
 
             try {
 
-                alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert = new Alert(AlertType.CONFIRMATION);
                 alert.setTitle("Error Message");
                 alert.setHeaderText(null);
                 alert.setContentText("Are you sure you want to UPDATE PRoduct ID: " + inventory_productID.getText() + "?");
@@ -452,7 +486,7 @@ public class mainFormController implements Initializable {
                     prepare = connect.prepareStatement(updateData);
                     prepare.executeUpdate();
 
-                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Error Message");
                     alert.setHeaderText(null);
                     alert.setContentText("Successfully Updated!");
@@ -463,7 +497,7 @@ public class mainFormController implements Initializable {
                     // TO CLEAR YOUR FIELDS
                     inventoryClearBtn();
                 } else {
-                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Error Message");
                     alert.setHeaderText(null);
                     alert.setContentText("Cancelled.");
@@ -478,14 +512,14 @@ public class mainFormController implements Initializable {
     public void inventoryDeleteBtn() {
         if (data.id == 0) {
 
-            alert = new Alert(Alert.AlertType.ERROR);
+            alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error Message");
             alert.setHeaderText(null);
             alert.setContentText("Please fill all blank fields");
             alert.showAndWait();
 
         } else {
-            alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert = new Alert(AlertType.CONFIRMATION);
             alert.setTitle("Error Message");
             alert.setHeaderText(null);
             alert.setContentText("Are you sure you want to DELETE Product ID: " + inventory_productID.getText() + "?");
@@ -497,7 +531,7 @@ public class mainFormController implements Initializable {
                     prepare = connect.prepareStatement(deleteData);
                     prepare.executeUpdate();
 
-                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Error Message");
                     alert.setHeaderText(null);
                     alert.setContentText("successfully Deleted!");
@@ -512,7 +546,7 @@ public class mainFormController implements Initializable {
                     e.printStackTrace();
                 }
             } else {
-                alert = new Alert(Alert.AlertType.ERROR);
+                alert = new Alert(AlertType.ERROR);
                 alert.setTitle("Error Message");
                 alert.setHeaderText(null);
                 alert.setContentText("Cancelled");
@@ -539,7 +573,7 @@ public class mainFormController implements Initializable {
     public void inventoryImportBtn() {
 
         FileChooser openFile = new FileChooser();
-        openFile.getExtensionFilters().add(new FileChooser.ExtensionFilter("Open Image File", "*png", "*jpg"));
+        openFile.getExtensionFilters().add(new ExtensionFilter("Open Image File", "*png", "*jpg"));
 
         File file = openFile.showOpenDialog(main_form.getScene().getWindow());
 
@@ -628,7 +662,7 @@ public class mainFormController implements Initializable {
         data.date = String.valueOf(prodData.getDate());
         data.id = prodData.getId();
 
-        image = new Image(path, 120, 151, false, true);
+        image = new Image(path, 120, 127, false, true);
         inventory_imageView.setImage(image);
     }
 
@@ -823,7 +857,7 @@ public class mainFormController implements Initializable {
     public void menuAmount() {
         menuGetTotal();
         if (menu_amount.getText().isEmpty() || totalP == 0) {
-            alert = new Alert(Alert.AlertType.ERROR);
+            alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error Message");
             alert.setHeaderText(null);
             alert.setContentText("Invalid :3");
@@ -842,7 +876,7 @@ public class mainFormController implements Initializable {
     public void menuPayBtn() {
 
         if (totalP == 0) {
-            alert = new Alert(Alert.AlertType.ERROR);
+            alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error Message");
             alert.setHeaderText(null);
             alert.setContentText("Please choose your order first!");
@@ -857,13 +891,13 @@ public class mainFormController implements Initializable {
             try {
 
                 if (amount == 0) {
-                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Error Messaged");
                     alert.setHeaderText(null);
                     alert.setContentText("Something wrong :3");
                     alert.showAndWait();
                 } else {
-                    alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert = new Alert(AlertType.CONFIRMATION);
                     alert.setTitle("Confirmation Message");
                     alert.setHeaderText(null);
                     alert.setContentText("Are you sure?");
@@ -884,7 +918,7 @@ public class mainFormController implements Initializable {
 
                         prepare.executeUpdate();
 
-                        alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert = new Alert(AlertType.INFORMATION);
                         alert.setTitle("Infomation Message");
                         alert.setHeaderText(null);
                         alert.setContentText("Successful.");
@@ -893,7 +927,7 @@ public class mainFormController implements Initializable {
                         menuShowOrderData();
 
                     } else {
-                        alert = new Alert(Alert.AlertType.WARNING);
+                        alert = new Alert(AlertType.WARNING);
                         alert.setTitle("Infomation Message");
                         alert.setHeaderText(null);
                         alert.setContentText("Cancelled.");
@@ -911,7 +945,7 @@ public class mainFormController implements Initializable {
     public void menuRemoveBtn() {
 
         if (getid == 0) {
-            alert = new Alert(Alert.AlertType.ERROR);
+            alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error Message");
             alert.setHeaderText(null);
             alert.setContentText("Please select the order you want to remove");
@@ -920,7 +954,7 @@ public class mainFormController implements Initializable {
             String deleteData = "DELETE FROM customer WHERE id = " + getid;
             connect = database.connectDB();
             try {
-                alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert = new Alert(AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Message");
                 alert.setHeaderText(null);
                 alert.setContentText("Are you sure you want to delete this order?");
@@ -942,7 +976,7 @@ public class mainFormController implements Initializable {
     public void menuReceiptBtn() {
 
         if (totalP == 0 || menu_amount.getText().isEmpty()) {
-            alert = new Alert(Alert.AlertType.ERROR);
+            alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error Message");
             alert.setContentText("Please order first");
             alert.showAndWait();
@@ -1103,7 +1137,7 @@ public class mainFormController implements Initializable {
 
         try {
 
-            alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert = new Alert(AlertType.CONFIRMATION);
             alert.setTitle("Error Message");
             alert.setHeaderText(null);
             alert.setContentText("Are you sure you want to logout?");
