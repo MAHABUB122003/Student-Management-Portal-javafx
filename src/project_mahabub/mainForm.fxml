@@ -49,10 +49,10 @@
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="dashboard_btn" layoutX="16.0" layoutY="186.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="Deshboard" />
-                              <Button fx:id="inventory_btn" layoutX="16.0" layoutY="235.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="Inventory" />
-                              <Button fx:id="menu_btn" layoutX="16.0" layoutY="285.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="Menu" />
-                              <Button fx:id="customers_btn" layoutX="16.0" layoutY="334.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="Customers" />
+                              <Button fx:id="dashboard_btn" layoutX="16.0" layoutY="186.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="Deshboard" />
+                              <Button fx:id="inventory_btn" layoutX="16.0" layoutY="235.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="Inventory" />
+                              <Button fx:id="menu_btn" layoutX="16.0" layoutY="285.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="Menu" />
+                              <Button fx:id="customers_btn" layoutX="16.0" layoutY="334.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="Customers" />
                               <Button layoutX="14.0" layoutY="554.0" mnemonicParsing="false" stylesheets="@mainFormDesign.css">
                                  <graphic>
                                     <FontAwesomeIcon fx:id="logout_btn" fill="WHITE" glyphName="SIGN_OUT" onDragDetected="#logout" size="2EM" text="" />
@@ -269,11 +269,11 @@
                                           <ImageView fx:id="inventory_imageView" fitHeight="151.0" fitWidth="120.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </AnchorPane>
-                                    <Button fx:id="inventory_importBtn" layoutX="679.0" layoutY="179.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="134.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Import" AnchorPane.rightAnchor="24.0" />
-                                    <Button fx:id="inventory_addBtn" layoutX="82.0" layoutY="200.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="87.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Add" AnchorPane.bottomAnchor="37.0" />
-                                    <Button fx:id="inventory_updateBtn" layoutX="188.0" layoutY="200.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="87.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Update" AnchorPane.bottomAnchor="37.0" />
-                                    <Button fx:id="inventory_clearBtn" layoutX="291.0" layoutY="200.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="87.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Clear" AnchorPane.bottomAnchor="37.0" />
-                                    <Button fx:id="inventory_deleteBtn" layoutX="397.0" layoutY="200.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="87.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Delete" AnchorPane.bottomAnchor="37.0" />
+                                    <Button fx:id="inventory_importBtn" layoutX="679.0" layoutY="179.0" mnemonicParsing="false" onAction="#inventoryImportBtn" prefHeight="33.0" prefWidth="134.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Import" AnchorPane.rightAnchor="24.0" />
+                                    <Button fx:id="inventory_addBtn" layoutX="82.0" layoutY="200.0" mnemonicParsing="false" onAction="#inventoryAddBtn" prefHeight="32.0" prefWidth="87.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Add" AnchorPane.bottomAnchor="37.0" />
+                                    <Button fx:id="inventory_updateBtn" layoutX="188.0" layoutY="200.0" mnemonicParsing="false" onAction="#inventoryUpdateBtn" prefHeight="32.0" prefWidth="87.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Update" AnchorPane.bottomAnchor="37.0" />
+                                    <Button fx:id="inventory_clearBtn" layoutX="291.0" layoutY="200.0" mnemonicParsing="false" onAction="#inventoryClearBtn" prefHeight="32.0" prefWidth="87.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Clear" AnchorPane.bottomAnchor="37.0" />
+                                    <Button fx:id="inventory_deleteBtn" layoutX="397.0" layoutY="200.0" mnemonicParsing="false" onAction="#inventoryDeleteBtn" prefHeight="32.0" prefWidth="87.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Delete" AnchorPane.bottomAnchor="37.0" />
                                     <Label layoutX="393.0" layoutY="135.0" text="Status:">
                                        <font>
                                           <Font size="15.0" />

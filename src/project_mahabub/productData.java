@@ -4,7 +4,6 @@
  */
 package project_mahabub;
 
-
 import java.sql.Date;
 
 /**
@@ -25,8 +24,8 @@ public class productData {
     private Integer quantity;
 
     public productData(Integer id, String productId,
-             String productName, String type, Integer stock,
-             Double price, String status, String image, Date date) {
+            String productName, String type, Integer stock,
+            Double price, String status, String image, Date date) {
         this.id = id;
         this.productId = productId;
         this.productName = productName;
@@ -37,9 +36,9 @@ public class productData {
         this.image = image;
         this.date = date;
     }
-    
-    public productData(Integer id, String productId, String productName, 
-            String type, Integer quantity, Double price, String image, Date date){
+
+    public productData(Integer id, String productId, String productName,
+            String type, Integer quantity, Double price, String image, Date date) {
         this.id = id;
         this.productId = productId;
         this.productName = productName;
@@ -61,8 +60,8 @@ public class productData {
     public String getProductName() {
         return productName;
     }
-    
-    public String getType(){
+
+    public String getType() {
         return type;
     }
 
@@ -85,8 +84,8 @@ public class productData {
     public Date getDate() {
         return date;
     }
-    
-    public Integer getQuantity(){
+
+    public Integer getQuantity() {
         return quantity;
     }
 }
