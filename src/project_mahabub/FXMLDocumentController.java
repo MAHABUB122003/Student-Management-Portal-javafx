@@ -125,6 +125,9 @@ public class FXMLDocumentController implements Initializable {
                 result = preprare.executeQuery();
 
                 if (result.next()) {
+                    // to get the username
+                   data.username = lo_username.getText();
+                    
                     alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Message");
                     alert.setHeaderText(null);

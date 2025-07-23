@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project_mahabub.MainFormController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project_mahabub.mainFormController">
    <children>
       <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -55,7 +55,7 @@
                               <Button fx:id="customers_btn" layoutX="16.0" layoutY="334.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="Customers" />
                               <Button layoutX="14.0" layoutY="554.0" mnemonicParsing="false" stylesheets="@mainFormDesign.css">
                                  <graphic>
-                                    <FontAwesomeIcon fx:id="logout_btn" fill="WHITE" glyphName="SIGN_OUT" size="2EM" text="" />
+                                    <FontAwesomeIcon fx:id="logout_btn" fill="WHITE" glyphName="SIGN_OUT" onDragDetected="#logout" size="2EM" text="" />
                                  </graphic>
                                  <styleClass>
                                     <String fx:value="logout" />
