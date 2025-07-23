@@ -10,6 +10,7 @@ package project_mahabub;
  * and open the template in the editor.
  */
 
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -228,9 +229,4 @@ public class cardProductController implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        setQuantity();
-    }
-
-}
+   
